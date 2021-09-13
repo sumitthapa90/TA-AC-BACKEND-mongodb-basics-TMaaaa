@@ -6,6 +6,8 @@ Run these shell commands in mongo shell:
 - db.stats()
 - db.help()
 
+//
+
 Write code to
 
 - create a database of your country name.
