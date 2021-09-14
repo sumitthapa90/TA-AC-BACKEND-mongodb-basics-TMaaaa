@@ -1,77 +1,20 @@
-writeCode
+// db.articles.insertMany(articlesArr);
 
-Write code to execute below expressions.
+// db.articles.find().pretty();
 
-1. Create a database named `blog`.
-2. Create a collection called 'articles'.
-3. Insert multiple documents(at least 3) into articles. It should have fields
+// db.articles.findOne({ _id: ObjectId("614072e4c73f3280070757d0") });
 
-- title as string
-- createdAt as date
-- details as String
-- author as nested object
-  - author should have
-    - name
-    - email
-    - age
-    - example author: {name: 'abc', email: 'abc@gmail', age: 25}
-- tags : Array of strings like ['html', 'css']
+// db.articles.findOne({ title: "node js" });
 
-```js
-// An article should look like in the database
-{
-  _id: 'some_random_id',
-  title: '',
-  details: '',
-  author: {
-    name: '',
-    email: '',
-    age: ''
-  },
-  tags: ['js', 'mongo']
-}
-```
+// db.articles.findOne({ "author.name": "sumit Thapa" });
 
-4. Find all the articles using `db.COLLECTION_NAME.find()`
+// db.articles.findOne({ tags: "JavaScript" });
 
-db.articles.find()
+// db.articles.update({ _id: ObjectId("61407f82c7c62a6deffe468b")}, {$set: {title: "Advance JS"}});
 
-5. Find a document using \_id field.
+// db.articles.update({})
 
-db.articles.findOne({"\_id" : ObjectId("61406fe1ef22f62e6b7bb470")})
-
-6. 1. Find documents using title
-
-db.articles.findOne({"title" : "node js"})
-
-7. 2. Find documents using author's name field.
-
-db.articles.findOne({"author.name": "sumit Thapa"})
-
-8. Find document using a specific tag.
-
-db.articles.findOne({ tags: "JavaScript" });
-
-13. Update an article's title using $set and without $set.
-
-db.articles.update({ \_id: ObjectId("61407f82c7c62a6deffe468b")}, {$set: {title: "Advance JS"}});
-
-db.articles.find().pretty();
-
-- Write the differences here ?
-
-14. find an article using title and increment it's auhtor's age by 5.
-
-db.articles.update({title: "node js"},{$inc: {"author.age":5}})
-
-14. Delete a document using \_id field with `db.COLLECTION_NAME.remove()`.
-
-db.articles.remove({title: "HTML"})
-
-// Sample data
-
-```js
-db.users.insertMany([
+var users = [
   {
     age: 49,
     name: "Maurice Brock",
@@ -179,17 +122,5 @@ db.users.insertMany([
     gender: "Male",
     sports: ["football", "cricket", "TT"],
   },
-]);
-```
+];
 
-Insert above data into database to perform below queries:-
-
-- Find all males who play cricket.
-
-db.users.find({gender: "Male"},{sports: 'cricket'}).pretty()
-
-- Update user with extra golf field in sports array whose name is "Steve Ortega".
-
-
-- Find all users who play either 'football' or 'cricket'.
-- Find all users whose name includes 'ri' in their name.
